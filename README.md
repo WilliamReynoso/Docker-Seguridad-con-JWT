@@ -31,7 +31,7 @@ Se realizaron las pruebas con Postman:
 ![imagen](https://github.com/user-attachments/assets/891c5dd0-fa02-4f23-b822-798197e58149)
 
 ### Probar acceso usando el token en GET /protected.
-Se usa el token obtenido, en el header Authorization con el contenido: Bearer <token>
+Se usa el token obtenido, en el header Authorization con el contenido: Bearer token_generado
 ![imagen](https://github.com/user-attachments/assets/a149780c-214b-467d-be2e-ab57aa779329)
 
 ### Hacer logout para invalidar el token en POST /logout
