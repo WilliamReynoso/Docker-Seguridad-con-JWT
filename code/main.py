@@ -45,26 +45,7 @@ def get_db_connection():
     )
     return connection
 
-# funcion para registrar usuarios con contraseña encriptada
-def register_user(username, password, first_name, last_name, email, device):
-    # Generar un salt y encriptar la contraseña
-    salt = bcrypt.gensalt()
-    hashed_password = bcrypt.hashpw(password.encode('utf-8'), salt)
-
-    try:
-        conn = get_db_connection()
-        cursor = conn.cursor()
-        cursor.execute(
-            "INSERT INTO users (username, password, first_name, last_name, email, device) VALUES (%s, %s, %s, %s, %s, %s)",
-            (username, hashed_password, first_name, last_name, email, device)
-        )
-        conn.commit()
-        cursor.close()
-        conn.close()
-        return {"message": "Usuario registrado exitosamente"}
-    except Exception as e:
-        return {"error": str(e)}
-
+# Registrar usuarios con contraseña encriptada
 @app.route('/register', methods=['POST'])
 def register():
     username = request.form['username']
